@@ -38,9 +38,13 @@ Cada vez que se crea un objeto, se valida el correo. Si el formato es incorrecto
 ## Enlace Navegador
 http://localhost/desarrollo-web-avanzado-fimaz-uas/parcial-1-poo/practica-3/index.php
 
+## Enlace video
+https://youtu.be/OZOJq0LvFws
+
 Esto demuestra que:
 - Los usuarios válidos se crean correctamente.  
 - Los usuarios con datos inválidos generan una excepción.  
 - El sistema controla los errores y muestra mensajes claros. 
+
 
 
