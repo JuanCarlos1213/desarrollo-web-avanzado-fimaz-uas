@@ -7,22 +7,18 @@ require_once __DIR__ . "/clases/Invitado.php";
 $usuarios = [];
 $error = null;
 
-// Usamos try/catch para controlar errores
 try {
 
-    // Usuario administrador válido
     $admin = new Admin("Carlos Ramírez", "admin@universidad.mx");
     $usuarios[] = $admin;
 
-    // Alumno válido
     $alumno = new Alumno("María López", "maria.lopez@alumnos.mx", "A20231234");
     $usuarios[] = $alumno;
 
-    // Invitado válido
     $invitado = new Invitado("Roberto Sánchez", "roberto@empresa.com", "Tech Solutions");
     $usuarios[] = $invitado;
 
-    // Usuario con correo inválido (debe lanzar excepción)
+    // Este debe lanzar excepción
     $usuarioInvalido = new Alumno("Error Usuario", "correo-mal-escrito", "A00000000");
     $usuarios[] = $usuarioInvalido;
 
@@ -44,32 +40,26 @@ try {
         <th>Empresa</th>
     </tr>
 
-    <tr>
-        <td>Carlos Ramírez</td>
-        <td>admin@universidad.mx</td>
-        <td>Administrador</td>
-        <td>—</td>
-        <td>—</td>
-    </tr>
+    <?php foreach ($usuarios as $usuario): ?>
+        <tr>
+            <td><?= $usuario->getNombre(); ?></td>
+            <td><?= $usuario->getCorreo(); ?></td>
+            <td><?= $usuario->getRol(); ?></td>
 
-    <tr>
-        <td>María López</td>
-        <td>maria.lopez@alumnos.mx</td>
-        <td>Alumno</td>
-        <td>A20231234</td>
-        <td>—</td>
-    </tr>
+            <td>
+                <?= method_exists($usuario, 'getMatricula') ? $usuario->getMatricula() : '—'; ?>
+            </td>
 
-    <tr>
-        <td>Roberto Sánchez</td>
-        <td>roberto@empresa.com</td>
-        <td>Invitado</td>
-        <td>—</td>
-        <td>Tech Solutions</td>
-    </tr>
+            <td>
+                <?= method_exists($usuario, 'getEmpresa') ? $usuario->getEmpresa() : '—'; ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
 
 </table>
 
-<p style="color:red; text-align:center; font-weight:bold;">
-    Error controlado: Correo inválido: correo-mal-escrito
-</p>
+<?php if ($error): ?>
+    <p style="color:red; text-align:center; font-weight:bold;">
+        Error controlado: <?= $error ?>
+    </p>
+<?php endif; ?>
