@@ -1,4 +1,4 @@
-# Práctica 4 – Integración POO en PHP
+# Práctica 4 – Integración POO en PHP + HERENCIA + VALIDACIONES + EXCEPCIONES (PHP 8+)
 
 ## Objetivo
 
@@ -25,4 +25,5 @@ http://localhost/desarrollo-web-avanzado-fimaz-uas/parcial-1-poo/practica-4/inde
 - Tabla HTML con 3 usuarios válidos.
 - Mensaje de error controlado por correo inválido.
 - Código organizado en estructura oficial.
+
 - Uso de try/catch.
